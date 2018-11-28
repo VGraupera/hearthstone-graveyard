@@ -3,7 +3,7 @@ const farseer = new Farseer();
 
 farseer.on('game-start', (data) => {
     console.log('Game started');
-    // console.log(data);
+    console.log(data);
 });
 
 farseer.on('game-over', (data) => {
@@ -12,10 +12,12 @@ farseer.on('game-over', (data) => {
 });
 
 farseer.on('zone-change', (data) => {
-  if ((data.toZone === 'GRAVEYARD') && (data.fromTeam === 'FRIENDLY')) {
+  if ((data.toZone === 'GRAVEYARD')
+    && (data.fromTeam === 'FRIENDLY')
+    && (data.fromZone === 'PLAY')) {
+    // console.log(data);
     console.log(data.cardName);
   }
-  // console.log(data);
 });
 
 farseer.start();
